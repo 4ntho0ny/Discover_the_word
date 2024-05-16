@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Welcome Game! {% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "game/starting_page.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+    <section id="menu">
+        <h1 id="title">Figure out the word</h1>
+        <h2 id="subtitle">Technology version &#128187;</h2>
+        <a id="start-button" href="{% url "play_page" %}">Start</a>
+    </section>
+
+{% endblock content %}

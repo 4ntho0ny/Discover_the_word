@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "base.css" %}">
+    {% block css_files %}{% endblock css_files %}
+    <title> {% block title %}{% endblock title %} </title>
+</head>
+<body>
+    <div class="rounded-button home-button">
+        <img src="{% static "images/home.png" %}" alt="home">
+    </div>
+    <label class="toogle">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+    {% block content %}{% endblock content %}
+</body>
+</html>
