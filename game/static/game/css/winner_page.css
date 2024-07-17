@@ -1,0 +1,11 @@
+@import "base.css";
+
+#congrats {
+    font-size: 4rem;
+    position: absolute;
+    top: 20rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-gray);
+    font-weight: 200;
+}

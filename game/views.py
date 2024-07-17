@@ -1,17 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 import random
 import requests
 from .forms import WordForm
-from django.http import HttpRequest
-from django.core.exceptions import ValidationError
 
+# Get word list
 def get_word_list():
-    
     url = 'https://raw.githubusercontent.com/guilhermeonrails/api-imersao-ia/main/words.json'
     response = requests.get(url)
     words = response.json()
     return words
 
+# Draw word
 def random_word():
     list_objects = get_word_list()
     return random.choice(list_objects)
@@ -42,7 +41,8 @@ def play_page(request):
         }
         
         return render(request, "game/game_page.html", context)
-    
+
+def validate_answer(request):
     # POST METHOD
     if request.method == "POST":
         
@@ -54,16 +54,11 @@ def play_page(request):
             correct_answer = form.cleaned_data["correct_word"].upper()
 
             if word == correct_answer:
-                print("Correct answer")
-                return render(request, "game/winner_page.html")
+                # print("Correct answer")
+                return redirect("winner_page")
             else:
-                print("Wrong answer")
-                context = {
-                    "hint": hint_text,
-                    "word_lenght": word_lenght,
-                    "form": form
-                }
-                return render(request, "game/game_page.html", context)
-            
+                # print("Wrong answer")
+                return redirect("play_page")
+
 def result_page(request):
     return render(request, "game/winner_page.html")
