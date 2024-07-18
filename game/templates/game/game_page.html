@@ -8,12 +8,14 @@
 
 {% block content %}
     <main>
-        <h1 id="title">HINT</h1>
-        <h3 id="hint">{{hint | upper}}</h3>
+        <h1 id="hint">HINT -> {{hint}}</h1>
     </main>
-    <form action="{% url "validate_answer" %}" id="answer-form" method="post">
+    <form action="{% url "play_page" %}" id="answer-form" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" id="submit-button" value="submit">
     </form>
+    {% if wrong_answer %}
+        <span id="wrong_msg">Wrong answer :(</span>
+    {% endif %}
 {% endblock content %}

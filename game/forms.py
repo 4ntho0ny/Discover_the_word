@@ -5,3 +5,5 @@ class WordForm(forms.Form):
                            widget=forms.TextInput(attrs={"id": "answer", "placeholder": "Answer", "autofocus": "True"}))
     correct_word = forms.CharField(label=False, max_length=50, 
                                    widget=forms.TextInput(attrs={"id": "correct_answer"}))
+    hint = forms.CharField(label=False, max_length=150, 
+                                   widget=forms.TextInput(attrs={"id": "hint_text"}))

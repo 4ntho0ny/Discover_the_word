@@ -1,35 +1,18 @@
 @import "base.css";
 
-.reload-button {
-    position: absolute;
-    right: 12rem;
-}
-
-.reload-button img {
-    width: 27px;
-    height: 27px;
-}
-
 main {
     position: absolute;
-    top: 16rem;
+    top: 9rem;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-#title, #hint {
+#hint {
     font-weight: 200;
     color: var(--white-gray);
     text-align: center;
-}
-
-#title {
-    font-size: 3rem;
-}
-
-#hint {
     font-size: 2rem;
-    margin: 4rem 0;
+    margin: 2rem 0;
     overflow: hidden;
     border-right: .15em solid var(--white-gray);
     white-space: nowrap;
@@ -50,17 +33,20 @@ main {
 
 #answer-form {
     position: absolute;
-    top: 27rem;
+    bottom: 8rem;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #answer-form #answer {
-    height: 3rem;
-    width: 15rem;
+    height: 4rem;
+    width: 20rem;
     padding: 10px;
     margin: 20px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     background-color: #c0c0c0;
     color: rgba(0, 0, 0, 0.7);
     box-shadow: 2px 2px 4px inset rgba(0, 0, 0, 0.5);
@@ -73,7 +59,7 @@ main {
     border-width: none;
     border-color: white;
     outline: 0;
-    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
 }
 
 #answer-form #submit-button {
@@ -85,11 +71,10 @@ main {
     font-size: 1.5rem;
     border-style: none;
     border-radius: 10px;
-    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
 }
 
 #answer-form #submit-button:active {
-    color: rgba(67, 65, 65, 0.2);
     transform: translate(3px, 3px);
 }
 
@@ -97,6 +82,16 @@ main {
     margin: 0 4rem;
 }
 
-#correct_answer {
-    visibility: hidden;
+#hint_text, #correct_answer  {
+    display: none;
+}
+
+#wrong_msg {
+    position: absolute;
+    left: 50%;
+    bottom: 5rem;
+    transform: translate(-50%);
+    font-size: 2rem;
+    font-weight: 200;
+    color: rgb(205, 7, 7);
 }
